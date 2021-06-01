@@ -67,7 +67,33 @@ class MyFrame3 ( wx.Frame ):
 		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+		self.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_ACTIVECAPTION ) )
 
+		sbSizer1 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Daftar Menu Pilihan :" ), wx.VERTICAL )
+
+		self.m_staticText1 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Menu Barang", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText1.Wrap( -1 )
+
+		sbSizer1.Add( self.m_staticText1, 0, wx.ALL, 5 )
+
+		self.m_toggleBtn1 = wx.ToggleButton( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Barang >>", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_toggleBtn1.SetBackgroundColour( wx.Colour( 0, 255, 128 ) )
+
+		sbSizer1.Add( self.m_toggleBtn1, 0, wx.ALL, 5 )
+
+		self.m_staticText2 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Menu Karyawan", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText2.Wrap( -1 )
+
+		sbSizer1.Add( self.m_staticText2, 0, wx.ALL, 5 )
+
+		self.m_toggleBtn2 = wx.ToggleButton( sbSizer1.GetStaticBox(), wx.ID_ANY, u"Karyawan >>", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_toggleBtn2.SetBackgroundColour( wx.Colour( 0, 255, 128 ) )
+
+		sbSizer1.Add( self.m_toggleBtn2, 0, wx.ALL, 5 )
+
+
+		self.SetSizer( sbSizer1 )
+		self.Layout()
 
 		self.Centre( wx.BOTH )
 
