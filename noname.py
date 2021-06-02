@@ -76,10 +76,10 @@ class MyFrame2 ( wx.Frame ):
 		self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer2.Add( self.m_textCtrl2, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
-		self.m_button10 = wx.Button( self, wx.ID_ANY, u"Login", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button10.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
+		self.m_button8 = wx.Button( self, wx.ID_ANY, u"LOGIN", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button8.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
 
-		bSizer2.Add( self.m_button10, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+		bSizer2.Add( self.m_button8, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 
 		self.SetSizer( bSizer2 )
@@ -265,38 +265,38 @@ class MyFrame6 ( wx.Frame ):
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.SystemSettings.GetColour( wx.SYS_COLOUR_ACTIVECAPTION ) )
 
-		sbSizer4 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Daftar Menu Pilihan" ), wx.VERTICAL )
+		sbSizer5 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Daftar Menu Pilihan" ), wx.VERTICAL )
 
-		self.m_staticText8 = wx.StaticText( sbSizer4.GetStaticBox(), wx.ID_ANY, u"Data Profil", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText8.Wrap( -1 )
-
-		sbSizer4.Add( self.m_staticText8, 0, wx.ALL, 5 )
-
-		self.m_button12 = wx.Button( sbSizer4.GetStaticBox(), wx.ID_ANY, u"Profil >>", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button12.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
-
-		sbSizer4.Add( self.m_button12, 0, wx.ALL, 5 )
-
-		self.m_staticText9 = wx.StaticText( sbSizer4.GetStaticBox(), wx.ID_ANY, u"Menu Barang", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText9 = wx.StaticText( sbSizer5.GetStaticBox(), wx.ID_ANY, u"Menu Profil", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText9.Wrap( -1 )
 
-		sbSizer4.Add( self.m_staticText9, 0, wx.ALL, 5 )
+		sbSizer5.Add( self.m_staticText9, 0, wx.ALL, 5 )
 
-		self.m_button13 = wx.Button( sbSizer4.GetStaticBox(), wx.ID_ANY, u"Barang >>", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button13.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
+		self.m_button9 = wx.Button( sbSizer5.GetStaticBox(), wx.ID_ANY, u"Profil >>", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button9.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
 
-		sbSizer4.Add( self.m_button13, 0, wx.ALL, 5 )
+		sbSizer5.Add( self.m_button9, 0, wx.ALL, 5 )
+
+		self.m_staticText10 = wx.StaticText( sbSizer5.GetStaticBox(), wx.ID_ANY, u"Menu Barang", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText10.Wrap( -1 )
+
+		sbSizer5.Add( self.m_staticText10, 0, wx.ALL, 5 )
+
+		self.m_button10 = wx.Button( sbSizer5.GetStaticBox(), wx.ID_ANY, u"Barang >>", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button10.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
+
+		sbSizer5.Add( self.m_button10, 0, wx.ALL, 5 )
 
 
-		sbSizer4.Add( ( 0, 0), 1, wx.EXPAND, 5 )
+		sbSizer5.Add( ( 0, 0), 1, wx.EXPAND, 5 )
 
-		self.m_button14 = wx.Button( sbSizer4.GetStaticBox(), wx.ID_ANY, u"<< Back", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button14.SetBackgroundColour( wx.Colour( 255, 255, 0 ) )
+		self.m_button11 = wx.Button( sbSizer5.GetStaticBox(), wx.ID_ANY, u"<< Back", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_button11.SetBackgroundColour( wx.Colour( 255, 255, 0 ) )
 
-		sbSizer4.Add( self.m_button14, 0, wx.ALL, 5 )
+		sbSizer5.Add( self.m_button11, 0, wx.ALL, 5 )
 
 
-		self.SetSizer( sbSizer4 )
+		self.SetSizer( sbSizer5 )
 		self.Layout()
 
 		self.Centre( wx.BOTH )
