@@ -166,6 +166,111 @@ class FrameBarangMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button33.Bind( wx.EVT_BUTTON, self.btn_tambah )
+		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
+
+	def __del__( self ):
+		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_tambah( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
+		event.Skip()
+
+
+###########################################################################
+## Class FrameBarang
+###########################################################################
+
+class FrameBarang ( wx.Frame ):
+
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 544,252 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+
+		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+
+		sbSizer41 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Menu Barang" ), wx.VERTICAL )
+
+		fgSizer5 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer5.SetFlexibleDirection( wx.BOTH )
+		fgSizer5.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+		bSizer4 = wx.BoxSizer( wx.VERTICAL )
+
+		self.m_staticText21 = wx.StaticText( sbSizer41.GetStaticBox(), wx.ID_ANY, u"Data Barang", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText21.Wrap( -1 )
+
+		self.m_staticText21.SetFont( wx.Font( 12, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, "Arial" ) )
+
+		bSizer4.Add( self.m_staticText21, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+
+		fgSizer5.Add( bSizer4, 1, wx.EXPAND, 5 )
+
+		fgSizer8 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer8.SetFlexibleDirection( wx.BOTH )
+		fgSizer8.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+
+		fgSizer5.Add( fgSizer8, 1, wx.EXPAND, 5 )
+
+		self.tabel_barang = wx.grid.Grid( sbSizer41.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+
+		# Grid
+		self.tabel_barang.CreateGrid( 5, 5 )
+		self.tabel_barang.EnableEditing( True )
+		self.tabel_barang.EnableGridLines( True )
+		self.tabel_barang.EnableDragGridSize( False )
+		self.tabel_barang.SetMargins( 0, 0 )
+
+		# Columns
+		self.tabel_barang.EnableDragColMove( False )
+		self.tabel_barang.EnableDragColSize( True )
+		self.tabel_barang.SetColLabelSize( 30 )
+		self.tabel_barang.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+		# Rows
+		self.tabel_barang.EnableDragRowSize( True )
+		self.tabel_barang.SetRowLabelSize( 80 )
+		self.tabel_barang.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+		# Label Appearance
+
+		# Cell Defaults
+		self.tabel_barang.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		fgSizer5.Add( self.tabel_barang, 0, wx.ALL, 5 )
+
+		bSizer3 = wx.BoxSizer( wx.VERTICAL )
+
+
+		fgSizer5.Add( bSizer3, 1, wx.EXPAND, 5 )
+
+
+		sbSizer41.Add( fgSizer5, 1, wx.EXPAND, 5 )
+
+
+		sbSizer41.Add( ( 0, 0), 1, wx.EXPAND, 5 )
+
+		fgSizer9 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer9.SetFlexibleDirection( wx.BOTH )
+		fgSizer9.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+		self.m_button37 = wx.Button( sbSizer41.GetStaticBox(), wx.ID_ANY, u"<< Back ", wx.DefaultPosition, wx.DefaultSize, 0 )
+		fgSizer9.Add( self.m_button37, 0, wx.ALL, 5 )
+
+
+		sbSizer41.Add( fgSizer9, 1, wx.EXPAND, 5 )
+
+
+		self.SetSizer( sbSizer41 )
+		self.Layout()
+
+		self.Centre( wx.BOTH )
+
 	def __del__( self ):
 		pass
 
@@ -305,66 +410,16 @@ class FrameKaryawanMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
-	def __del__( self ):
-		pass
-
-
-###########################################################################
-## Class FrameBarangKry
-###########################################################################
-
-class FrameBarangKry ( wx.Frame ):
-
-	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
-
-		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
-
-		sbSizer81 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Menu Barang" ), wx.VERTICAL )
-
-		self.m_staticText81 = wx.StaticText( sbSizer81.GetStaticBox(), wx.ID_ANY, u"Silahkan Pilih Daftar Menu Berikut :", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText81.Wrap( -1 )
-
-		sbSizer81.Add( self.m_staticText81, 0, wx.ALL, 5 )
-
-		self.m_button26 = wx.Button( sbSizer81.GetStaticBox(), wx.ID_ANY, u"Lihat Data Barang >>", wx.DefaultPosition, wx.Size( 130,30 ), 0 )
-		self.m_button26.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
-
-		sbSizer81.Add( self.m_button26, 0, wx.ALL, 5 )
-
-		self.m_button27 = wx.Button( sbSizer81.GetStaticBox(), wx.ID_ANY, u"Cek Stok Barang >>", wx.DefaultPosition, wx.Size( 130,30 ), 0 )
-		self.m_button27.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
-
-		sbSizer81.Add( self.m_button27, 0, wx.ALL, 5 )
-
-		self.m_button28 = wx.Button( sbSizer81.GetStaticBox(), wx.ID_ANY, u"Laporan Barang >>", wx.DefaultPosition, wx.Size( 130,30 ), 0 )
-		self.m_button28.SetBackgroundColour( wx.Colour( 0, 255, 0 ) )
-
-		sbSizer81.Add( self.m_button28, 0, wx.ALL, 5 )
-
-
-		sbSizer81.Add( ( 0, 0), 1, wx.EXPAND, 5 )
-
-		fgSizer81 = wx.FlexGridSizer( 0, 2, 0, 0 )
-		fgSizer81.SetFlexibleDirection( wx.BOTH )
-		fgSizer81.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
-
-		self.m_button81 = wx.Button( sbSizer81.GetStaticBox(), wx.ID_ANY, u"<< Back", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_button81.SetBackgroundColour( wx.Colour( 255, 255, 0 ) )
-
-		fgSizer81.Add( self.m_button81, 0, wx.ALL, 5 )
-
-
-		sbSizer81.Add( fgSizer81, 1, wx.EXPAND, 5 )
-
-
-		self.SetSizer( sbSizer81 )
-		self.Layout()
-
-		self.Centre( wx.BOTH )
+		# Connect Events
+		self.m_button51.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -508,6 +563,7 @@ class FrameMenuMgr ( wx.Frame ):
 		sbSizer31.Add( self.m_staticText32, 0, wx.ALL, 5 )
 
 		self.m_toggleBtn32 = wx.ToggleButton( sbSizer31.GetStaticBox(), wx.ID_ANY, u"Karyawan >>", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_toggleBtn32.SetValue( True )
 		self.m_toggleBtn32.SetBackgroundColour( wx.Colour( 0, 255, 128 ) )
 
 		sbSizer31.Add( self.m_toggleBtn32, 0, wx.ALL, 5 )
@@ -526,8 +582,24 @@ class FrameMenuMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_toggleBtn31.Bind( wx.EVT_TOGGLEBUTTON, self.btn_barang )
+		self.m_toggleBtn32.Bind( wx.EVT_TOGGLEBUTTON, self.btn_karyawan )
+		self.m_button31.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_barang( self, event ):
+		event.Skip()
+
+	def btn_karyawan( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -577,7 +649,19 @@ class FrameMenuKry ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
+		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_profil( self, event ):
+		event.Skip()
+
+	def btn_barang1( self, event ):
+		event.Skip()
 
 
