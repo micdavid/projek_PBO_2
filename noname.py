@@ -936,6 +936,7 @@ class FrameMenuKry ( wx.Frame ):
 		# Connect Events
 		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
 		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
+		self.m_button63.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
@@ -946,6 +947,9 @@ class FrameMenuKry ( wx.Frame ):
 		event.Skip()
 
 	def btn_barang1( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
 		event.Skip()
 
 

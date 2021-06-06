@@ -17,6 +17,7 @@ class Login(gui.FrameLogin):
     def __init__(self,parent):
         gui.FrameLogin.__init__(self,parent)
 
+
     def btn_login( self, event ):
         self.manager = Data.Manager()
         self.karyawan = Data.Karyawan()
@@ -94,6 +95,9 @@ class FrameMgr(gui.FrameMenuMgr):
     def btn_karyawan( self, event ):
         FrameKaryawan.Show()
         FrameMgr.Hide()
+    def btn_back( self, event ):
+        FrameLogin.Show()
+        FrameMgr.Hide()
 
 class FrameKry(gui.FrameMenuKry):
     def __init__(self,parent):
@@ -104,7 +108,10 @@ class FrameKry(gui.FrameMenuKry):
     def btn_profil( self, event ):
         FrameProfil.Show()
         FrameKry.Hide()
-
+    def btn_back( self, event ):
+        FrameLogin.Show()
+        FrameKry.Hide()
+        
 class FrameInputKr(gui.FrameInputKry):
     def __init__(self,parent):
         gui.FrameInputKry.__init__(self,parent)
@@ -150,8 +157,8 @@ FrameInputLp=FrameInputLp(None)
 FrameProfil=FrameProfil(None)
 
 # framewelcome.Show()
-# FrameLogin.Show()
-FrameMgr.Show()
+FrameLogin.Show()
+# FrameMgr.Show()
 # FrameKry.Show()
 # FrameKaryawan.Show()
 # FrameBarang1.Show()
