@@ -64,12 +64,125 @@ class Welcome(gui.WelcomeFrame):
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
         gui.FrameBarangMgr.__init__(self,parent)
+        self.initData()
+        self.AddButtonEditDelete()
+
+    def AddButtonEditDelete(self):
+        # imgEdit = wx.Bitmap("edit.PNG", wx.BITMAP_TYPE_PNG)
+        # imgDelete = wx.Bitmap("delete.PNG", wx.BITMAP_TYPE_PNG)
+        jmlKolom = self.tabel_barang.GetNumberCols()
+        self.tabel_barang.AppendCols(2)
+        colEdit = jmlKolom
+        colDelete = jmlKolom + 1
+        # self.rdEdit = renderer.MyImageRenderer(imgEdit)
+        # self.rdDelete = renderer.MyImageRenderer(imgDelete)
+
+        self.tabel_barang.SetColLabelValue(colEdit, '')
+        self.tabel_barang.SetColLabelValue(colDelete, '')
+
+        for row in range(self.data_barang.GetNumberRows()):
+            self.tabel_barang.SetCellValue(row, colEdit, 'Edit')
+            self.tabel_barang.SetCellBackgroundColour(row, colEdit, wx.BLUE)
+            self.tabel_barang.SetCellTextColour(row, colEdit, wx.WHITE)
+
+            self.tabel_barang.SetCellValue(row, colDelete, 'Delete')
+            self.tabel_barang.SetCellBackgroundColour(row, colDelete, wx.RED)
+            self.tabel_barang.SetCellTextColour(row, colDelete, wx.WHITE)
+            # self.tabelSiswa.SetCellRenderer(row, colEdit, rdEdit)
+            # self.tabelSiswa.SetRowSize(row, imgEdit.GetHeight() + 4)
+            # self.tabelSiswa.SetColSize(colEdit, imgEdit.GetWidth() + 4)
+
+            # self.tabelSiswa.SetCellRenderer(row, colDelete, rdEdit)
+            # self.tabelSiswa.SetRowSize(row, imgDelete.GetHeight() + 4)
+            # self.tabelSiswa.SetColSize(colDelete, imgDelete.GetWidth() + 4)
+        self.tabel_barang.Fit()
+        self.panelGrid.Layout()
+
+    def initData(self):
+        # self.tabelSiswa.DeleteRows(0, 1, True)
+        # tmpTabel = self.tabelSiswa
+        # self.tabelSiswa.Destroy()
+
+        # self.tabelSiswa = wx.grid.Grid( self.panelGrid, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+
+        # Grid
+        # self.tabelSiswa.CreateGrid( 5, 5 )
+        n_cols = self.tabel_barang.GetNumberCols()
+        n_rows = self.tabel_barang.GetNumberRows()
+        if n_cols > 0:
+            self.tabel_barang.DeleteCols(0, n_cols, True)
+        if n_rows > 0:
+            self.tabel_barang.DeleteRows(0, n_rows, True)
+
+        # t2.nama, t2.email, t1.nim, t1.tahun_masuk
+        koloms = ['id_barang', 'nama_barang', 'jenis_barang', 'harga_barang', 'stok_barang']
+        self.tabel_barang.AppendCols(len(koloms))
+
+        self.brg = Data.Barang()
+        daftarBrg = self.brg.getDataBarang(nama_barang)
+        baris = 0
+        # lstData = []
+        self.lstIdPerson = []
+        for col in range(len(koloms)):
+            self.tabel_barang.SetColLabelValue(
+                col, koloms[col])  # mengubah nama kolom
+        for brg_row in daftarBrg:
+            self.tabel_barang.AppendRows(1)
+            # tmp_data_baris = []
+            print(baris, '. ', brg_row)
+            id_barang, nama_barang, jenis_barang, harga_barang, stok_barang = brg_row
+            self.tabel_barang.SetCellValue(baris, 0, id_barang)
+            self.tabel_barang.SetCellValue(baris, 1, nama_barang)
+            self.tabel_barang.SetCellValue(baris, 2, jenis_barang)
+            self.tabel_barang.SetCellValue(baris, 3, harga_barang)
+            self.tabel_barang.SetCellValue(baris, 4, stok_barang)
+            self.lstIdPerson.append(id)
+            baris += 1
+
     def btn_back( self, event ):
         FrameMgr.Show()
         FrameBarang1.Hide()
     def btn_tambah(self, event):
-        FrameInput.Show()
-        FrameBarang1.Hide()
+        frg = gui.FrameInputBarang(self)
+        frg.ShowModal()
+
+    def insertDataBrg(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+        self.brg.setDataBarang(id_barang, nama_barang, jenis_barang, harga_barang, stok_barang)
+        self.initData()
+        self.AddButtonEditDelete()
+
+    def updateDataBrg(self, id_person, nama, email, nim, tahunMasuk):
+        self.brg.updateDataBarang(id_person, nama, email, nim, tahunMasuk)
+        self.initData()
+        self.AddButtonEditDelete()
+
+        # wx.MessageBox('Tambah data', 'Informasi')
+    def tabel_barangOnGridCmdSelectCell(self, event):
+        baris = event.GetRow()
+        kolom = event.GetCol()
+
+        print('baris: ', baris)
+        print('kolom: ', kolom)
+        if kolom == 5:
+            # wx.MessageBox('Edit data', 'Informasi')
+            id_person = self.lstIdPerson[baris]
+            frg = gui.FrameInputBarang(self, id_person)
+            id_barang = self.tabel_barang.GetCellValue(baris, 0)
+            nama_barang = self.tabel_barang.GetCellValue(baris, 1)
+            jenis_barang = self.tabel_barang.GetCellValue(baris, 2)
+            harga_barang = self.tabel_barang.GetCellValue(baris, 3)
+            stok_barang = self.tabel_barang.GetCellValue(baris, 4)
+            frg.isiDataBarang(id_barang, nama_barang, jenis_barang, harga_barang, stok_barang)
+            frg.ShowModal()
+        elif kolom == 6:
+            frg = wx.MessageDialog(
+                self, 'Hapus data', 'Informasi', style=wx.YES_NO)
+            retval = frg.ShowModal()
+            if retval == wx.ID_YES:
+                print('hapus')
+                self.brg.deleteBarang(self.lstIdPerson[baris])
+                self.initData()
+                self.AddButtonEditDelete()
 
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
