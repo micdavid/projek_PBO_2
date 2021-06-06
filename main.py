@@ -54,39 +54,52 @@ class Login(gui.FrameLogin):
             else :
                 print("Error mas")
                     
-class FrameMgr(gui.FrameMenuMgr):
-    def __init__(self,parent):
-        gui.FrameMenuMgr.__init__(self,parent)
-    def btn_barang( self, event ):
-        FrameBarang.Show()
-        FrameMgr.Hide()
-    def btn_karyawan( self, event ):
-        FrameKryawan.Show()
-        FrameMgr.Hide()
 
         
-class FrameKry(gui.FrameMenuKry):
-    def __init__(self,parent):
-        gui.FrameMenuKry.__init__(self,parent)
-    # def btn_barang( self, event ):
-    #     FrameBarang.Show()
-    #     FrameKry.Hide()
 
 class Welcome(gui.WelcomeFrame):
     def __init__(self,parent):
         gui.WelcomeFrame.__init__(self,parent)
 
-class FrameKryawan(gui.FrameKaryawanMgr):
+class FrameBarang1 (gui.FrameBarangMgr):
+    def __init__(self,parent):
+        gui.FrameBarangMgr.__init__(self,parent)
+
+class FrameBarang2 (gui.FrameBarang):
+    def __init__(self,parent):
+        gui.FrameBarang.__init__(self,parent)
+
+class FrameInput(gui.FrameInputBarang):
+    def __init__(self,parent):
+        gui.FrameInputBarang.__init__(self,parent)
+
+class FrameKaryawan(gui.FrameKaryawanMgr):
     def __init__(self,parent):
         gui.FrameKaryawanMgr.__init__(self,parent)
 
-class FrameBarang(gui.FrameBarangKry):
+class FrameProfil (gui.FrameProfilKry):
     def __init__(self,parent):
-        gui.FrameBarangKry.__init__(self,parent)
+        gui.FrameKaryawanMgr.__init__(self,parent)
 
-class FrameBarang1 (gui.FrameBarang):
+class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
-        gui.FrameBarang.__init__(self,parent)
+        gui.FrameMenuMgr.__init__(self,parent)
+    def btn_barang( self, event ):
+        FrameBarang1.Show()
+        FrameMgr.Hide()
+    def btn_karyawan( self, event ):
+        FrameKaryawan.Show()
+        FrameMgr.Hide()
+
+class FrameKry(gui.FrameMenuKry):
+    def __init__(self,parent):
+        gui.FrameMenuKry.__init__(self,parent)
+	def btn_barang1( self, event ):
+		FrameBarang2.Show()
+        FrameKry.Hide()
+
+
+
 
 # class Toko(gui.panel_barang_mgr):
 #     def __init__(self,parent):
@@ -108,12 +121,20 @@ framewelcome=Welcome(None)
 FrameLogin=Login(None)
 FrameMgr=FrameMgr(None)
 FrameKry=FrameKry(None)
-FrameKryawan=FrameKryawan(None)
-FrameBarang=FrameBarang(None)
+FrameKaryawan=FrameKaryawan(None)
+FrameBarang1=FrameBarang1(None)
+FrameBarang2=FrameBarang2(None)
+FrameInput=FrameInput(None)
+FrameProfil=FrameProfil(None)
 
+# framewelcome.Show()
 # FrameLogin.Show()
 # FrameMgr.Show()
-# FrameKryawan.Show()
-# FrameBarang.Show()
 FrameKry.Show()
+# FrameKaryawan.Show()
+# FrameBarang1.Show()
+# FrameBarang2.Show()
+# FrameInput.Show()
+# FrameProfil.Show()
+
 app.MainLoop()

@@ -836,7 +836,7 @@
                 </object>
             </object>
         </object>
-        <object class="Frame" expanded="1">
+        <object class="Frame" expanded="0">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -3700,6 +3700,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
+                        <event name="OnButtonClick">btn_profil</event>
                     </object>
                 </object>
                 <object class="sizeritem" expanded="0">
@@ -3833,7 +3834,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick">btn_barang</event>
+                        <event name="OnButtonClick">btn_barang1</event>
                     </object>
                 </object>
                 <object class="sizeritem" expanded="0">

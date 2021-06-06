@@ -626,14 +626,18 @@ class FrameMenuKry ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang )
+		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
+		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def btn_barang( self, event ):
+	def btn_profil( self, event ):
+		event.Skip()
+
+	def btn_barang1( self, event ):
 		event.Skip()
 
 
