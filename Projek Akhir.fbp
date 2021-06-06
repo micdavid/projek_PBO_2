@@ -261,7 +261,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick">m_button11OnButtonClick</event>
+                        <event name="OnButtonClick">btn_login</event>
                     </object>
                 </object>
                 <object class="sizeritem" expanded="0">
@@ -5399,6 +5399,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
+                        <event name="OnButtonClick">btn_back</event>
                     </object>
                 </object>
             </object>
