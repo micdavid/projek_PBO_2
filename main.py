@@ -19,8 +19,8 @@ class Login(gui.FrameLogin):
 
     def btn_login( self, event ):
         self.manager = Data.Manager()
-        self.karyawan = Data.Karyawan()
         mgrlist = self.manager.getDataManager()
+        self.karyawan = Data.Karyawan()
         krylist = self.karyawan.getDataKaryawan()
         username = self.input_username.GetValue()
         password = self.input_pw.GetValue()
@@ -42,9 +42,9 @@ class Login(gui.FrameLogin):
         # print(array_pw)
         # print(array_nama)
 
-        for x in array_user:
+        for x in range (len(array_nama)):
             print(x)
-            if username == array_user and password == array_pw:
+            if username == array_user[x] and password == array_pw[x]:
                 if array_nama[x]== "":
                     FrameMgr.Show()
                     FrameLogin.Hide()
@@ -104,8 +104,8 @@ FrameKry=FrameKry(None)
 FrameKryawan=FrameKryawan(None)
 FrameBarang=FrameBarang(None)
 
-# FrameLogin.Show()
-FrameMgr.Show()
+FrameLogin.Show()
+# FrameMgr.Show()
 # FrameKryawan.Show()
 # FrameBarang.Show()
 app.MainLoop()
