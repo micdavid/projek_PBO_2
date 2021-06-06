@@ -37,9 +37,9 @@ class Karyawan(DataToko):
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
-	def updateKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone):
-		self.query = 'UPDATE data_karyawan SET password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telephone=\'%s\' where username = %i;' 
-		self.query = self.query % ( password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, username)
+	def updateKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, id):
+		self.query = 'UPDATE data_karyawan SET username =\'%s\' password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telephone=\'%s\' where username = %i;' 
+		self.query = self.query % (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, id)
 		print('self.query : ', self.query)
 		self.executeQuery(self.query)
 

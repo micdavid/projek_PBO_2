@@ -61,12 +61,45 @@ class Welcome(gui.WelcomeFrame):
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
         gui.FrameBarangMgr.__init__(self,parent)
+        self.showData()
+
     def btn_back( self, event ):
         FrameMgr.Show()
         FrameBarang1.Hide()
     def btn_tambah(self, event):
         FrameInput.Show()
         FrameBarang1.Hide()
+    def showData(self):
+        jml_kolom = self.tabel_barang.GetNumberCols()
+        jml_baris = self.tabel_barang.GetNumberRows()
+        if jml_kolom > 0:
+            self.tabel_barang.DeleteCols(0, jml_kolom, True)
+        if jml_baris > 0:
+            self.tabel_barang.DeleteRows(0, jml_baris, True)
+
+        kolom = ['Id Barang', 'Nama Barang', 'Jenis Barang', 'Harga Barang', 'Stok Barang']
+        self.tabel_barang.AppendCols(len(kolom))
+
+        self.manager = Data.Manager()
+        mgrlist = self.manager.getDataManager()
+        row = 0
+
+        self.listIdmgr = []
+        for i in range(len(kolom)):
+            self.tabel_barang.SetColLabelValue(
+                i, kolom[i]) 
+        for x in mgrlist:
+            self.tabel_barang.AppendRows(1)
+
+            print(row, '. ', x)
+            id_barang, nama_barang, jenis_barang, harga_barang, stok_barang = x
+            self.tabel_barang.SetCellValue(row, 0, id_barang)
+            self.tabel_barang.SetCellValue(row, 1, nama_barang)
+            self.tabel_barang.SetCellValue(row, 2, jenis_barang)
+            self.tabel_barang.SetCellValue(row, 3, harga_barang)
+            self.tabel_barang.SetCellValue(row, 4, stok_barang)
+            self.listIdmgr.append(id_barang)
+            row += 1
 
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
@@ -153,10 +186,10 @@ FrameProfil=FrameProfil(None)
 
 # framewelcome.Show()
 # FrameLogin.Show()
-FrameMgr.Show()
+# FrameMgr.Show()
 # FrameKry.Show()
 # FrameKaryawan.Show()
-# FrameBarang1.Show()
+FrameBarang1.Show()
 # FrameBarang2.Show()
 # FrameInput.Show()
 # FrameProfil.Show()
