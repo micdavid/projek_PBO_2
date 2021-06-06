@@ -24,38 +24,33 @@ class Login(gui.FrameLogin):
         krylist = self.karyawan.getDataKaryawan()
         username = self.input_username.GetValue()
         password = self.input_pw.GetValue()
+        Uname = []
+        Pass = []
+        Nama = []
+        Jabatan = []
 
-        array_user = []
-        array_pw = []
-        array_nama = []
+        for x in mgrlist:
+            Uname.append(x[1])
+            Pass.append(x[2])
+            Nama.append(x[3])
+            Jabatan.append(x[4])
 
-        for i in mgrlist:
-            array_user.append(i[0])
-            array_pw.append(i[1])
+        for y in krylist:
+            Uname.append(y[1])
+            Pass.append(y[2])
+            Nama.append(y[3])
+            Jabatan.append(y[4])
 
-        for j in krylist:
-            array_user.append(j[0])
-            array_pw.append(j[1])
-            array_nama.append(j[2])
-
-        # print(array_user)
-        # print(array_pw)
-        # print(array_nama)
-
-        for x in array_user:
-            print(x)
-            if username == array_user and password == array_pw:
-                if array_nama[x]== "":
+        for i in range(len(Uname)):
+            print(i)
+            if username == Uname[i] and password == Pass[i]:
+                if Jabatan[i] == "Manager":
                     FrameMgr.Show()
                     FrameLogin.Hide()
-                else :
+                elif Jabatan[i] != "Manager" :
                     FrameKry.Show()
                     FrameLogin.Hide()
-            else :
-                print("Error mas")
                     
-
-        
 
 class Welcome(gui.WelcomeFrame):
     def __init__(self,parent):
