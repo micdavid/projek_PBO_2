@@ -68,6 +68,9 @@ class FrameMgr(gui.FrameMenuMgr):
 class FrameKry(gui.FrameMenuKry):
     def __init__(self,parent):
         gui.FrameMenuKry.__init__(self,parent)
+    # def btn_barang( self, event ):
+    #     FrameBarang.Show()
+    #     FrameKry.Hide()
 
 class Welcome(gui.WelcomeFrame):
     def __init__(self,parent):
@@ -80,6 +83,10 @@ class FrameKryawan(gui.FrameKaryawanMgr):
 class FrameBarang(gui.FrameBarangKry):
     def __init__(self,parent):
         gui.FrameBarangKry.__init__(self,parent)
+
+class FrameBarang1 (gui.FrameBarang):
+    def __init__(self,parent):
+        gui.FrameBarang.__init__(self,parent)
 
 # class Toko(gui.panel_barang_mgr):
 #     def __init__(self,parent):
@@ -105,7 +112,8 @@ FrameKryawan=FrameKryawan(None)
 FrameBarang=FrameBarang(None)
 
 # FrameLogin.Show()
-FrameMgr.Show()
+# FrameMgr.Show()
 # FrameKryawan.Show()
 # FrameBarang.Show()
+FrameKry.Show()
 app.MainLoop()
