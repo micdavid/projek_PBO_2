@@ -17,6 +17,7 @@ class Login(gui.FrameLogin):
     def __init__(self,parent):
         gui.FrameLogin.__init__(self,parent)
 
+
     def btn_login( self, event ):
         self.manager = Data.Manager()
         self.karyawan = Data.Karyawan()
@@ -24,42 +25,42 @@ class Login(gui.FrameLogin):
         krylist = self.karyawan.getDataKaryawan()
         username = self.input_username.GetValue()
         password = self.input_pw.GetValue()
+        Uname = []
+        Pass = []
+        Nama = []
+        Jabatan = []
 
-        array_user = []
-        array_pw = []
-        array_nama = []
+        for x in mgrlist:
+            Uname.append(x[1])
+            Pass.append(x[2])
+            Nama.append(x[3])
+            Jabatan.append(x[4])
 
-        for i in mgrlist:
-            array_user.append(i[0])
-            array_pw.append(i[1])
+        for y in krylist:
+            Uname.append(y[1])
+            Pass.append(y[2])
+            Nama.append(y[3])
+            Jabatan.append(y[4])
 
-        for j in krylist:
-            array_user.append(j[0])
-            array_pw.append(j[1])
-            array_nama.append(j[2])
-
-        # print(array_user)
-        # print(array_pw)
-        # print(array_nama)
-
-        for x in array_user:
-            print(x)
-            if username == array_user and password == array_pw:
-                if array_nama[x]== "":
+        for i in range(len(Uname)):
+            print(i)
+            if username == Uname[i] and password == Pass[i]:
+                if Jabatan[i] == "Manager":
                     FrameMgr.Show()
                     FrameLogin.Hide()
-                else :
+                elif Jabatan[i] != "Manager" :
                     FrameKry.Show()
                     FrameLogin.Hide()
             else :
-                print("Error mas")
+                print("Username atau password salah!!")
                     
 
-        
-
-class Welcome(gui.WelcomeFrame):
+class FrameWelcome(gui.WelcomeFrame):
     def __init__(self,parent):
         gui.WelcomeFrame.__init__(self,parent)
+    def btn_login( self, event ):
+        FrameLogin.Show()
+        FrameWelcome.Hide()
 
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
@@ -187,6 +188,9 @@ class FrameBarang1 (gui.FrameBarangMgr):
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
         gui.FrameBarang.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameKry.Show()
+        FrameBarang2.Hide()
         
         
 class FrameInput(gui.FrameInputBarang):
@@ -200,10 +204,6 @@ class FrameKaryawan(gui.FrameKaryawanMgr):
         FrameMgr.Show()
         FrameKaryawan.Hide()
 
-# class FrameProfil (gui.FrameProfilKry):
-#     def __init__(self,parent):
-#         gui.FrameKaryawanMgr.__init__(self,parent)
-
 class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
         gui.FrameMenuMgr.__init__(self,parent)
@@ -213,6 +213,9 @@ class FrameMgr(gui.FrameMenuMgr):
     def btn_karyawan( self, event ):
         FrameKaryawan.Show()
         FrameMgr.Hide()
+    def btn_back( self, event ):
+        FrameLogin.Show()
+        FrameMgr.Hide()
 
 class FrameKry(gui.FrameMenuKry):
     def __init__(self,parent):
@@ -220,9 +223,27 @@ class FrameKry(gui.FrameMenuKry):
     def btn_barang1(self, event):
         FrameBarang2.Show()
         FrameKry.Hide()
+    def btn_profil( self, event ):
+        FrameProfil.Show()
+        FrameKry.Hide()
+    def btn_back( self, event ):
+        FrameLogin.Show()
+        FrameKry.Hide()
 
+class FrameInputKr(gui.FrameInputKry):
+    def __init__(self,parent):
+        gui.FrameInputKry.__init__(self,parent)
 
+class FrameInputLp(gui.FrameInputLapor):
+    def __init__(self,parent):
+        gui.FrameInputLapor.__init__(self,parent)
 
+class FrameProfil(gui.FrameProfilKry):
+    def __init__(self,parent):
+        gui.FrameProfilKry.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameKry.Show()
+        FrameProfil.Hide()
 
 
 # class Toko(gui.panel_barang_mgr):
@@ -241,7 +262,7 @@ class FrameKry(gui.FrameMenuKry):
     #     self.AddButtonEditDelete()
 
 app=wx.App()
-framewelcome=Welcome(None)
+FrameWelcome=FrameWelcome(None)
 FrameLogin=Login(None)
 FrameMgr=FrameMgr(None)
 FrameKry=FrameKry(None)
@@ -249,16 +270,20 @@ FrameKaryawan=FrameKaryawan(None)
 FrameBarang1=FrameBarang1(None)
 FrameBarang2=FrameBarang2(None)
 FrameInput=FrameInput(None)
-# FrameProfil=FrameProfil(None)
+FrameInputKr=FrameInputKr(None)
+FrameInputLp=FrameInputLp(None)
+FrameProfil=FrameProfil(None)
 
-# framewelcome.Show()
+FrameWelcome.Show()
 # FrameLogin.Show()
 # FrameMgr.Show()
 # FrameKry.Show()
 # FrameKaryawan.Show()
-FrameBarang1.Show()
+# FrameBarang1.Show()
 # FrameBarang2.Show()
 # FrameInput.Show()
 # FrameProfil.Show()
+# FrameInputLp.Show()
+# FrameInputKr.Show()
 
 app.MainLoop()

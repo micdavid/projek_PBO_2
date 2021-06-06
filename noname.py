@@ -57,14 +57,14 @@ class WelcomeFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.m_button11.Bind( wx.EVT_BUTTON, self.m_button11OnButtonClick )
+		self.m_button11.Bind( wx.EVT_BUTTON, self.btn_login )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def m_button11OnButtonClick( self, event ):
+	def btn_login( self, event ):
 		event.Skip()
 
 
@@ -277,8 +277,16 @@ class FrameBarang ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -455,8 +463,16 @@ class FrameKaryawanMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button27.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -731,8 +747,16 @@ class FrameProfilKry ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button31.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -912,6 +936,7 @@ class FrameMenuKry ( wx.Frame ):
 		# Connect Events
 		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
 		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
+		self.m_button63.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
@@ -922,6 +947,9 @@ class FrameMenuKry ( wx.Frame ):
 		event.Skip()
 
 	def btn_barang1( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
 		event.Skip()
 
 

@@ -17,7 +17,7 @@ class DataToko:
 class Manager(DataToko):
 
 	def getDataManager(self):
-		self.query = "SELECT username, password FROM data_manager"
+		self.query = "SELECT id, username, password, nama, jabatan FROM data_manager"
 		print('self.query : ', self.query)
 		result = self.executeQuery(self.query, True)
 		return result
@@ -26,7 +26,7 @@ class Manager(DataToko):
 class Karyawan(DataToko):
 	
 	def getDataKaryawan(self):
-		self.query = "SELECT username, password, nama_karyawan FROM data_karyawan"
+		self.query = "SELECT id, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telphone FROM data_karyawan"
 		print('self.query : ', self.query)
 		result = self.executeQuery(self.query, True)
 		return result
