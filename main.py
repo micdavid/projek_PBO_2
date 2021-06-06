@@ -51,6 +51,8 @@ class Login(gui.FrameLogin):
                 elif Jabatan[i] != "Manager" :
                     FrameKry.Show()
                     FrameLogin.Hide()
+            else :
+                print("Username atau password salah!!")
                     
 
 class FrameWelcome(gui.WelcomeFrame):
