@@ -71,6 +71,9 @@ class FrameBarang1 (gui.FrameBarangMgr):
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
         gui.FrameBarang.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameKry.Show()
+        FrameBarang2.Hide()
         
         
 class FrameInput(gui.FrameInputBarang):
@@ -83,10 +86,6 @@ class FrameKaryawan(gui.FrameKaryawanMgr):
     def btn_back( self, event ):
         FrameMgr.Show()
         FrameKaryawan.Hide()
-
-# class FrameProfil (gui.FrameProfilKry):
-#     def __init__(self,parent):
-#         gui.FrameKaryawanMgr.__init__(self,parent)
 
 class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
@@ -104,9 +103,24 @@ class FrameKry(gui.FrameMenuKry):
     def btn_barang1(self, event):
         FrameBarang2.Show()
         FrameKry.Hide()
+    def btn_profil( self, event ):
+        FrameProfil.Show()
+        FrameKry.Hide()
 
+class FrameInputKr(gui.FrameInputKry):
+    def __init__(self,parent):
+        gui.FrameInputKry.__init__(self,parent)
 
+class FrameInputLp(gui.FrameInputLapor):
+    def __init__(self,parent):
+        gui.FrameInputLapor.__init__(self,parent)
 
+class FrameProfil(gui.FrameProfilKry):
+    def __init__(self,parent):
+        gui.FrameProfilKry.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameKry.Show()
+        FrameProfil.Hide()
 
 
 # class Toko(gui.panel_barang_mgr):
@@ -133,10 +147,20 @@ FrameKaryawan=FrameKaryawan(None)
 FrameBarang1=FrameBarang1(None)
 FrameBarang2=FrameBarang2(None)
 FrameInput=FrameInput(None)
-# FrameProfil=FrameProfil(None)
+FrameInputKr=FrameInputKr(None)
+FrameInputLp=FrameInputLp(None)
+FrameProfil=FrameProfil(None)
 
-FrameLogin.Show()
-# FrameMgr.Show()
-# FrameKryawan.Show()
+# framewelcome.Show()
+# FrameLogin.Show()
+FrameMgr.Show()
+# FrameKry.Show()
+# FrameKaryawan.Show()
 # FrameBarang1.Show()
+# FrameBarang2.Show()
+# FrameInput.Show()
+# FrameProfil.Show()
+# FrameInputLp.Show()
+# FrameInputKr.Show()
+
 app.MainLoop()
