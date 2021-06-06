@@ -64,11 +64,18 @@ class Welcome(gui.WelcomeFrame):
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
         gui.FrameBarangMgr.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameMgr.Show()
+        FrameBarang1.Hide()
+    def btn_tambah(self, event):
+        FrameInput.Show()
+        FrameBarang1.Hide()
 
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
         gui.FrameBarang.__init__(self,parent)
-
+        
+        
 class FrameInput(gui.FrameInputBarang):
     def __init__(self,parent):
         gui.FrameInputBarang.__init__(self,parent)
@@ -76,10 +83,13 @@ class FrameInput(gui.FrameInputBarang):
 class FrameKaryawan(gui.FrameKaryawanMgr):
     def __init__(self,parent):
         gui.FrameKaryawanMgr.__init__(self,parent)
+    def btn_back( self, event ):
+        FrameMgr.Show()
+        FrameKaryawan.Hide()
 
-class FrameProfil (gui.FrameProfilKry):
-    def __init__(self,parent):
-        gui.FrameKaryawanMgr.__init__(self,parent)
+# class FrameProfil (gui.FrameProfilKry):
+#     def __init__(self,parent):
+#         gui.FrameKaryawanMgr.__init__(self,parent)
 
 class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
@@ -94,9 +104,10 @@ class FrameMgr(gui.FrameMenuMgr):
 class FrameKry(gui.FrameMenuKry):
     def __init__(self,parent):
         gui.FrameMenuKry.__init__(self,parent)
-	def btn_barang1( self, event ):
-		FrameBarang2.Show()
+    def btn_barang1(self, event):
+        FrameBarang2.Show()
         FrameKry.Hide()
+
 
 
 
@@ -125,14 +136,14 @@ FrameKaryawan=FrameKaryawan(None)
 FrameBarang1=FrameBarang1(None)
 FrameBarang2=FrameBarang2(None)
 FrameInput=FrameInput(None)
-FrameProfil=FrameProfil(None)
+# FrameProfil=FrameProfil(None)
 
 # framewelcome.Show()
 # FrameLogin.Show()
 # FrameMgr.Show()
-FrameKry.Show()
+# FrameKry.Show()
 # FrameKaryawan.Show()
-# FrameBarang1.Show()
+FrameBarang1.Show()
 # FrameBarang2.Show()
 # FrameInput.Show()
 # FrameProfil.Show()

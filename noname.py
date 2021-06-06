@@ -166,8 +166,20 @@ class FrameBarangMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button33.Bind( wx.EVT_BUTTON, self.btn_tambah )
+		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_tambah( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -398,8 +410,16 @@ class FrameKaryawanMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button51.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -565,6 +585,7 @@ class FrameMenuMgr ( wx.Frame ):
 		# Connect Events
 		self.m_toggleBtn31.Bind( wx.EVT_TOGGLEBUTTON, self.btn_barang )
 		self.m_toggleBtn32.Bind( wx.EVT_TOGGLEBUTTON, self.btn_karyawan )
+		self.m_button31.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
@@ -575,6 +596,9 @@ class FrameMenuMgr ( wx.Frame ):
 		event.Skip()
 
 	def btn_karyawan( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
 		event.Skip()
 
 
