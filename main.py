@@ -1,11 +1,90 @@
 import wx
-import noname
+import noname as gui
+import Data
 
-class Toko1(noname.MyFrame8):
+# class InputBarang(gui.panel_input_data_brg):
+#     def __init__(self,parent):
+#         self.parent = parent
+
+#     def input_brg(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+#         self.input_id_barang.SetValue(id_barang)
+#         self.input_nama_barang.SetValue(id_barang)
+#         self.input_jenis_barang.SetValue(id_barang)
+#         self.input_harga_barang.SetValue(id_barang)
+#         self.input_stok_barang.SetValue(id_barang)
+
+class Login(gui.FrameLogin):
     def __init__(self,parent):
-        noname.MyFrame8.__init__(self,parent)
+        gui.FrameLogin.__init__(self,parent)
+
+    def btn_login( self, event ):
+        self.manager = Data.Manager()
+        self.karyawan = Data.Karyawan()
+        mgrlist = self.manager.getDataManager()
+        krylist = self.karyawan.getDataKaryawan()
+        username = self.input_username.GetValue()
+        password = self.input_pw.GetValue()
+
+        array_user = []
+        array_pw = []
+        array_nama = []
+
+        for i in mgrlist:
+            array_user.append(i[0])
+            array_pw.append(i[1])
+
+        for j in krylist:
+            array_user.append(j[0])
+            array_pw.append(j[1])
+            array_nama.append(j[2])
+
+        # print(array_user)
+        # print(array_pw)
+        # print(array_nama)
+
+        for x in array_user:
+            print(x)
+            if username == array_user and password == array_pw:
+                if array_nama[x]== "":
+                    FrameMgr.Show()
+                    FrameLogin.Hide()
+                else :
+                    FrameKry.Show()
+                    FrameLogin.Hide()
+            else :
+                print("Error mas")
+                    
+class FrameMgr(gui.FrameMenuMgr):
+    def __init__(self,parent):
+        gui.FrameMenuMgr.__init__(self,parent)
+        
+class FrameKry(gui.FrameMenuKry):
+    def __init__(self,parent):
+        gui.FrameMenuKry.__init__(self,parent)
+
+class Welcome(gui.WelcomeFrame):
+    def __init__(self,parent):
+        gui.WelcomeFrame.__init__(self,parent)
+
+# class Toko(gui.panel_barang_mgr):
+#     def __init__(self,parent):
+#         gui.panel_barang_mgr.__init__(self,parent)
+        # self.initData()
+
+    # def insertDataBrg(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+    #     self.mhs.setDataMahasiswa(nama, email, nim, tahunMasuk)
+    #     self.initData()
+    #     self.AddButtonEditDelete()
+
+    # def updateDataBrg(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+    #     self.mhs.updateMahasiswa(id_person, nama, email, nim, tahunMasuk)
+    #     self.initData()
+    #     self.AddButtonEditDelete()
 
 app=wx.App()
-frame=Toko1(None)
-frame.Show()
+framewelcome=Welcome(None)
+FrameLogin=Login(None)
+FrameMgr=FrameMgr(None)
+FrameKry=FrameKry(None)
+FrameLogin.Show()
 app.MainLoop()
