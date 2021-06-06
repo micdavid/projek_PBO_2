@@ -53,9 +53,12 @@ class Login(gui.FrameLogin):
                     FrameLogin.Hide()
                     
 
-class Welcome(gui.WelcomeFrame):
+class FrameWelcome(gui.WelcomeFrame):
     def __init__(self,parent):
         gui.WelcomeFrame.__init__(self,parent)
+    def btn_login( self, event ):
+        FrameLogin.Show()
+        FrameWelcome.Hide()
 
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
@@ -111,7 +114,7 @@ class FrameKry(gui.FrameMenuKry):
     def btn_back( self, event ):
         FrameLogin.Show()
         FrameKry.Hide()
-        
+
 class FrameInputKr(gui.FrameInputKry):
     def __init__(self,parent):
         gui.FrameInputKry.__init__(self,parent)
@@ -144,7 +147,7 @@ class FrameProfil(gui.FrameProfilKry):
     #     self.AddButtonEditDelete()
 
 app=wx.App()
-framewelcome=Welcome(None)
+FrameWelcome=FrameWelcome(None)
 FrameLogin=Login(None)
 FrameMgr=FrameMgr(None)
 FrameKry=FrameKry(None)
@@ -156,8 +159,8 @@ FrameInputKr=FrameInputKr(None)
 FrameInputLp=FrameInputLp(None)
 FrameProfil=FrameProfil(None)
 
-# framewelcome.Show()
-FrameLogin.Show()
+FrameWelcome.Show()
+# FrameLogin.Show()
 # FrameMgr.Show()
 # FrameKry.Show()
 # FrameKaryawan.Show()

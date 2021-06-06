@@ -57,14 +57,14 @@ class WelcomeFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.m_button11.Bind( wx.EVT_BUTTON, self.m_button11OnButtonClick )
+		self.m_button11.Bind( wx.EVT_BUTTON, self.btn_login )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def m_button11OnButtonClick( self, event ):
+	def btn_login( self, event ):
 		event.Skip()
 
 
