@@ -141,9 +141,9 @@ class FrameBarang1 (gui.FrameBarangMgr):
             row += 1
 
 
-    def btn_tambah( self, event ):
-		dlg = dlgAddBarang(self)
-        dlg.ShowModal()
+    #def btn_tambah( self, event ):
+		#dlg = dlgAddBarang(self)
+        #dlg.ShowModal()
 
     def insertDataBrg(self, id, no_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
         self.barang.addDataBarang()
@@ -254,18 +254,18 @@ class FrameLapor(gui.FrameLaporMgr):
         listLaporan = self.lapor.getDataLapor()
         row = 0
 
-        self.listLaporan = []
+        self.listIDLaporan = []
         for col in range(len(kolom)):
             self.tabel_lapor.SetColLabelValue(col, kolom[col]) 
         for row_lapor in listLaporan:
             self.tabel_lapor.AppendRows(1)
             print(row, '. ', row_lapor)
             id_laporan, no_barang, username= row_lapor
-            no_kry=str(username)
             lpr=str(no_barang)
-            self.tabel_lapor.SetCellValue(row, 0, no_kry)
-            self.tabel_lapor.SetCellValue(row, 1, lpr)
-            self.listIdLapor.append(id_laporan)
+            no_kry=str(username)
+            self.tabel_lapor.SetCellValue(row, 0, lpr)
+            self.tabel_lapor.SetCellValue(row, 1, no_kry)
+            self.listIDLaporan.append(id_laporan)
             row += 1
 
 
