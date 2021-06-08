@@ -51,8 +51,8 @@ class Karyawan(DataToko):
 	
 
 class Barang(DataToko):
-	def setDataBarang(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
-		self.query = 'INSERT INTO data_barang (id_barang, nama_barang, jenis_barang, harga_barang, stok_barang) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' 
+	def addDataBarang(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+		self.query = 'INSERT INTO data_barang (no_barang, nama_barang, jenis_barang, harga_barang, stok_barang) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' 
 		self.query = self.query % (id_barang, nama_barang, jenis_barang, harga_barang, stok_barang)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)

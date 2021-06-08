@@ -62,6 +62,34 @@ class FrameWelcome(gui.WelcomeFrame):
         FrameLogin.Show()
         FrameWelcome.Hide()
 
+class dlgAddBarang(gui.FrameInputBrg):
+    def __init__(self, parent, id=-1):
+        gui.FrameInputBrg.__init__(self, parent)
+        self.parent=parent
+        self.id = id
+
+    def btn_simpan( self, event ):
+        dlg= wx.MessageDialog(self, 'simpan data', 'Informasi', style=wx.YES_NO)
+        retval= dlg.ShowModal()
+
+        if self.id == -1:
+            self.parent.insertDataEmployee(self.ctrlUsername.GetValue(), self.ctrlPassword.GetValue(
+            ), self.ctrlNama.GetValue(), self.ctrlGender.GetValue(), self.ctrlAlamat.GetValue(), self.ctrlTelepon.GetValue(), self.ctrlTahunMasuk.GetValue())
+        else:
+            self.parent.updateDataEmp(self.id, self.ctrlUsername.GetValue(), self.ctrlPassword.GetValue(
+            ), self.ctrlNama.GetValue(), self.ctrlGender.GetValue(), self.ctrlAlamat.GetValue(), self.ctrlTelepon.GetValue(), self.ctrlTahunMasuk.GetValue())
+
+        self.Destroy()
+
+    def fillDataEmployee(self, username, password, nama, gender, alamat, telepon, tanggalMasuk):
+        self.ctrlUsername.SetValue(username)
+        self.ctrlPassword.SetValue(password)
+        self.ctrlNama.SetValue(nama)
+        self.ctrlGender.SetValue(gender)
+        self.ctrlAlamat.SetValue(alamat)
+        self.ctrlTelepon.SetValue(telepon)
+        self.ctrlTahunMasuk.SetValue(tanggalMasuk)
+
 class FrameBarang1 (gui.FrameBarangMgr):
     def __init__(self,parent):
         gui.FrameBarangMgr.__init__(self,parent)
@@ -110,15 +138,39 @@ class FrameBarang1 (gui.FrameBarangMgr):
             row += 1
 
 
-    def insertDataBrg(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
-        self.brg.setDataBarang(id_barang, nama_barang, jenis_barang, harga_barang, stok_barang)
-        self.initData()
-        self.AddButtonEditDelete()
+    def btn_tambah( self, event ):
+		dlg = dlgAddBarang(self)
+        dlg.ShowModal()
 
+    def insertDataBrg(self, id, no_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
+        self.barang.addDataBarang()
+
+    
     def updateDataBrg(self, id_person, nama, email, nim, tahunMasuk):
         self.brg.updateDataBarang(id_person, nama, email, nim, tahunMasuk)
         self.initData()
         self.AddButtonEditDelete()
+
+    def AddBtnBarang (self):
+        jmlKolom = self.Karyawan.GetNumberCols()
+        self.Karyawan.AppendCols(2)
+        colEdit = jmlKolom
+        colDelete = jmlKolom + 1
+
+        self.Karyawan.SetColLabelValue(colEdit, '')
+        self.Karyawan.SetColLabelValue(colDelete, '')
+
+        for row in range(self.Karyawan.GetNumberRows()):
+            self.Karyawan.SetCellValue(row, colEdit, 'Edit')
+            self.Karyawan.SetCellBackgroundColour(row, colEdit, wx.BLUE)
+            self.Karyawan.SetCellTextColour(row, colEdit, wx.WHITE)
+
+            self.Karyawan.SetCellValue(row, colDelete, 'Delete')
+            self.Karyawan.SetCellBackgroundColour(row, colDelete, wx.RED)
+            self.Karyawan.SetCellTextColour(row, colDelete, wx.WHITE)
+
+        self.Karyawan.Fit()
+        self.infoAkun.Layout()
 
 
 class FrameBarang2 (gui.FrameBarang):
@@ -132,44 +184,9 @@ class FrameBarang2 (gui.FrameBarang):
 class FrameKaryawan(gui.FrameKaryawanMgr):
     def __init__(self,parent):
         gui.FrameKaryawanMgr.__init__(self,parent)
-        self.showDataKaryawan()
     def btn_back( self, event ):
         FrameMgr.Show()
         FrameKaryawan.Hide()
-    
-    def showDataKaryawan(self):
-        n_cols = self.tabel_karyawan.GetNumberCols()
-        n_rows = self.tabel_karyawan.GetNumberRows()
-        if n_cols > 0:
-            self.tabel_karyawan.DeleteCols(0, n_cols, True)
-        if n_rows > 0:
-            self.tabel_karyawan.DeleteRows(0, n_rows, True)
-
-        kolom = ['ID Karyawan', 'Username', 'Password', 'Jenis Kelamin', 'Tanggal Lahir', 'Alamat', 'No Telepon']
-        self.tabel_karyawan.AppendCols(len(kolom))
-
-        self.karyawan = Data.Karyawan()
-        listKaryawan = self.karyawan.getDataKaryawan()
-        row = 0
-
-        self.listIdKaryawan = []
-        for col in range(len(kolom)):
-            self.tabel_karyawan.SetColLabelValue(col, kolom[col]) 
-        for row_karyawan in listKaryawan:
-            self.tabel_karyawan.AppendRows(1)
-            print(row, '. ', row_karyawan)
-            id, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telphone  = row_karyawan
-            no_kry=str(username)
-            hp=str(no_telphone)
-            self.tabel_karyawan.SetCellValue(row, 0, no_kry)
-            self.tabel_karyawan.SetCellValue(row, 1, password)
-            self.tabel_karyawan.SetCellValue(row, 2, nama_karyawan)
-            self.tabel_karyawan.SetCellValue(row, 3, jenis_kelamin)
-            self.tabel_karyawan.SetCellValue(row, 4, tanggal_lahir)
-            self.tabel_karyawan.SetCellValue(row, 5, alamat)
-            self.tabel_karyawan.SetCellValue(row, 6, hp)
-            self.listIdKaryawan.append(id)
-            row += 1
 
 class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
