@@ -508,7 +508,7 @@ class FrameInputLaporan ( wx.Dialog ):
 class FrameKaryawanMgr ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 800,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 843,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -537,31 +537,31 @@ class FrameKaryawanMgr ( wx.Frame ):
 
 		fgSizer14.Add( fgSizer15, 1, wx.EXPAND, 5 )
 
-		self.m_grid3 = wx.grid.Grid( sbSizer7.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.tabel_karyawan = wx.grid.Grid( sbSizer7.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid3.CreateGrid( 3, 7 )
-		self.m_grid3.EnableEditing( True )
-		self.m_grid3.EnableGridLines( True )
-		self.m_grid3.EnableDragGridSize( False )
-		self.m_grid3.SetMargins( 0, 0 )
+		self.tabel_karyawan.CreateGrid( 3, 8 )
+		self.tabel_karyawan.EnableEditing( True )
+		self.tabel_karyawan.EnableGridLines( True )
+		self.tabel_karyawan.EnableDragGridSize( False )
+		self.tabel_karyawan.SetMargins( 0, 0 )
 
 		# Columns
-		self.m_grid3.EnableDragColMove( False )
-		self.m_grid3.EnableDragColSize( True )
-		self.m_grid3.SetColLabelSize( 30 )
-		self.m_grid3.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_karyawan.EnableDragColMove( False )
+		self.tabel_karyawan.EnableDragColSize( True )
+		self.tabel_karyawan.SetColLabelSize( 30 )
+		self.tabel_karyawan.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Rows
-		self.m_grid3.EnableDragRowSize( True )
-		self.m_grid3.SetRowLabelSize( 80 )
-		self.m_grid3.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_karyawan.EnableDragRowSize( True )
+		self.tabel_karyawan.SetRowLabelSize( 80 )
+		self.tabel_karyawan.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Label Appearance
 
 		# Cell Defaults
-		self.m_grid3.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-		fgSizer14.Add( self.m_grid3, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+		self.tabel_karyawan.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		fgSizer14.Add( self.tabel_karyawan, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 		bSizer9 = wx.BoxSizer( wx.VERTICAL )
 
@@ -726,7 +726,7 @@ class FrameProfilKry ( wx.Frame ):
 		self.m_grid4 = wx.grid.Grid( sbSizer71.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid4.CreateGrid( 1, 7 )
+		self.m_grid4.CreateGrid( 3, 8 )
 		self.m_grid4.EnableEditing( True )
 		self.m_grid4.EnableGridLines( True )
 		self.m_grid4.EnableDragGridSize( False )
