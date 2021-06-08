@@ -57,12 +57,11 @@ class Barang(DataToko):
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
-	def getDataBarang(self, nama_barang):
-		self.query = 'SELECT id_barang FROM data_barang where nama_barang=\'%s\'' 
-		self.query = self.query % (nama_barang)
-		print('self.query : ', self.query )
-		username = self.executeQuery(self.query, retVal=True)
-		return username
+	def getDataBarang(self):
+		self.query = "SELECT id, no_barang, nama_barang, jenis_barang, harga_barang, stok_barang FROM data_barang"
+		print('self.query : ', self.query)
+		result = self.executeQuery(self.query, True)
+		return result
 
 	def updateDataBarang(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
 		self.query = 'UPDATE data_barang SET id_barang = ?, nama_barang = ?, jenis_barang = ?, harga_barang = ?, stok_barang = ?'

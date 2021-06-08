@@ -57,14 +57,14 @@ class WelcomeFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.m_button11.Bind( wx.EVT_BUTTON, self.btn_login )
+		self.m_button11.Bind( wx.EVT_BUTTON, self.m_button11OnButtonClick )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def btn_login( self, event ):
+	def m_button11OnButtonClick( self, event ):
 		event.Skip()
 
 
@@ -224,7 +224,7 @@ class FrameBarang ( wx.Frame ):
 		self.tabel_barang = wx.grid.Grid( sbSizer41.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.tabel_barang.CreateGrid( 5, 5 )
+		self.tabel_barang.CreateGrid( 5, 6 )
 		self.tabel_barang.EnableEditing( True )
 		self.tabel_barang.EnableGridLines( True )
 		self.tabel_barang.EnableDragGridSize( False )
@@ -296,7 +296,7 @@ class FrameBarang ( wx.Frame ):
 class FrameInputBarang ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 500,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 343,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -936,7 +936,6 @@ class FrameMenuKry ( wx.Frame ):
 		# Connect Events
 		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
 		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
-		self.m_button63.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
@@ -947,9 +946,6 @@ class FrameMenuKry ( wx.Frame ):
 		event.Skip()
 
 	def btn_barang1( self, event ):
-		event.Skip()
-
-	def btn_back( self, event ):
 		event.Skip()
 
 

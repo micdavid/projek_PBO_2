@@ -261,7 +261,7 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick">btn_login</event>
+                        <event name="OnButtonClick">m_button11OnButtonClick</event>
                     </object>
                 </object>
                 <object class="sizeritem" expanded="0">
@@ -928,7 +928,7 @@
             <property name="minimum_size"></property>
             <property name="name">FrameBarang</property>
             <property name="pos"></property>
-            <property name="size">627,252</property>
+            <property name="size">695,268</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title"></property>
@@ -1081,7 +1081,7 @@
                                 <property name="col_label_size">30</property>
                                 <property name="col_label_values"></property>
                                 <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
-                                <property name="cols">5</property>
+                                <property name="cols">6</property>
                                 <property name="column_sizes"></property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -1345,7 +1345,7 @@
             <property name="minimum_size"></property>
             <property name="name">FrameInputBarang</property>
             <property name="pos"></property>
-            <property name="size">500,300</property>
+            <property name="size">343,300</property>
             <property name="style">wxDEFAULT_FRAME_STYLE</property>
             <property name="subclass">; ; forward_declare</property>
             <property name="title"></property>
@@ -5399,7 +5399,6 @@
                         <property name="window_extra_style"></property>
                         <property name="window_name"></property>
                         <property name="window_style"></property>
-                        <event name="OnButtonClick">btn_back</event>
                     </object>
                 </object>
             </object>
