@@ -101,6 +101,7 @@ class Lapor(DataToko):
 		self.query = self.query % (id_laporan)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
+		#test
 		
 
 
