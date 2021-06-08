@@ -75,6 +75,9 @@ class FrameBarang1 (gui.FrameBarangMgr):
     def btn_tambah(self, event):
         # FrameInput.Show()
         FrameBarang1.Hide()
+    def cek_lapor(self, event):
+        FrameLapor.Show()
+        FrameBarang1.Hide()
 
     def showDataBarang(self):
         n_cols = self.tabel_barang.GetNumberCols()
@@ -210,6 +213,44 @@ class FrameProfil(gui.FrameProfilKry):
         FrameKry.Show()
         FrameProfil.Hide()
 
+class FrameLapor(gui.FrameLaporMgr):
+    def __init__(self, parent):
+        gui.FrameLaporMgr.__init__(self, parent)
+        self.showDataLapor()
+    
+    def btn_back(self):
+        FrameBarang1.Show()
+        FrameLapor.Hide()    
+    
+    def showDataLapor(self):
+        n_cols = self.tabel_lapor.GetNumberCols()
+        n_rows = self.tabel_lapor.GetNumberRows()
+        if n_cols > 0:
+            self.tabel_lapor.DeleteCols(0, n_cols, True)
+        if n_rows > 0:
+            self.tabel_lapor.DeleteRows(0, n_rows, True)
+
+        kolom = ['ID Lapor', 'ID Barang', 'Username']
+        self.tabel_lapor.AppendCols(len(kolom))
+
+        self.lapor = Data.Lapor()
+        listLaporan = self.lapor.getDataLapor()
+        row = 0
+
+        self.listLaporan = []
+        for col in range(len(kolom)):
+            self.tabel_lapor.SetColLabelValue(col, kolom[col]) 
+        for row_lapor in listLaporan:
+            self.tabel_lapor.AppendRows(1)
+            print(row, '. ', row_lapor)
+            id_laporan, no_barang, username= row_lapor
+            no_kry=str(username)
+            lpr=str(no_barang)
+            self.tabel_lapor.SetCellValue(row, 0, no_kry)
+            self.tabel_lapor.SetCellValue(row, 1, lpr)
+            self.listIdLapor.append(id_laporan)
+            row += 1
+
 
 app=wx.App()
 FrameWelcome=FrameWelcome(None)
@@ -220,6 +261,7 @@ FrameKaryawan=FrameKaryawan(None)
 FrameBarang1=FrameBarang1(None)
 FrameBarang2=FrameBarang2(None)
 FrameProfil=FrameProfil(None)
+FrameLapor=FrameLapor(None)
 
 # FrameWelcome.Show()
 # FrameLogin.Show()
