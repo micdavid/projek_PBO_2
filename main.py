@@ -132,9 +132,44 @@ class FrameBarang2 (gui.FrameBarang):
 class FrameKaryawan(gui.FrameKaryawanMgr):
     def __init__(self,parent):
         gui.FrameKaryawanMgr.__init__(self,parent)
+        self.showDataKaryawan()
     def btn_back( self, event ):
         FrameMgr.Show()
         FrameKaryawan.Hide()
+    
+    def showDataKaryawan(self):
+        n_cols = self.tabel_karyawan.GetNumberCols()
+        n_rows = self.tabel_karyawan.GetNumberRows()
+        if n_cols > 0:
+            self.tabel_karyawan.DeleteCols(0, n_cols, True)
+        if n_rows > 0:
+            self.tabel_karyawan.DeleteRows(0, n_rows, True)
+
+        kolom = ['ID Karyawan', 'Username', 'Password', 'Jenis Kelamin', 'Tanggal Lahir', 'Alamat', 'No Telepon']
+        self.tabel_karyawan.AppendCols(len(kolom))
+
+        self.karyawan = Data.Karyawan()
+        listKaryawan = self.karyawan.getDataKaryawan()
+        row = 0
+
+        self.listIdKaryawan = []
+        for col in range(len(kolom)):
+            self.tabel_karyawan.SetColLabelValue(col, kolom[col]) 
+        for row_karyawan in listKaryawan:
+            self.tabel_karyawan.AppendRows(1)
+            print(row, '. ', row_karyawan)
+            id, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telphone  = row_karyawan
+            no_kry=str(username)
+            hp=str(no_telphone)
+            self.tabel_karyawan.SetCellValue(row, 0, no_kry)
+            self.tabel_karyawan.SetCellValue(row, 1, password)
+            self.tabel_karyawan.SetCellValue(row, 2, nama_karyawan)
+            self.tabel_karyawan.SetCellValue(row, 3, jenis_kelamin)
+            self.tabel_karyawan.SetCellValue(row, 4, tanggal_lahir)
+            self.tabel_karyawan.SetCellValue(row, 5, alamat)
+            self.tabel_karyawan.SetCellValue(row, 6, hp)
+            self.listIdKaryawan.append(id)
+            row += 1
 
 class FrameMgr(gui.FrameMenuMgr):
     def __init__(self,parent):
