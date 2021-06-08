@@ -500,7 +500,7 @@ class FrameInputLaporan ( wx.Dialog ):
 class FrameKaryawanMgr ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 800,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 843,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -532,7 +532,7 @@ class FrameKaryawanMgr ( wx.Frame ):
 		self.m_grid3 = wx.grid.Grid( sbSizer7.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid3.CreateGrid( 3, 7 )
+		self.m_grid3.CreateGrid( 3, 8 )
 		self.m_grid3.EnableEditing( True )
 		self.m_grid3.EnableGridLines( True )
 		self.m_grid3.EnableDragGridSize( False )
@@ -718,7 +718,7 @@ class FrameProfilKry ( wx.Frame ):
 		self.m_grid4 = wx.grid.Grid( sbSizer71.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid4.CreateGrid( 1, 7 )
+		self.m_grid4.CreateGrid( 3, 8 )
 		self.m_grid4.EnableEditing( True )
 		self.m_grid4.EnableGridLines( True )
 		self.m_grid4.EnableDragGridSize( False )
