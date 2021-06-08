@@ -26,20 +26,20 @@ class Manager(DataToko):
 class Karyawan(DataToko):
 	
 	def getDataKaryawan(self):
-		self.query = "SELECT * FROM data_karyawan"
+		self.query = "SELECT id, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telphone FROM data_karyawan"
 		print('self.query : ', self.query)
 		result = self.executeQuery(self.query, True)
 		return result
 
-	def setDataKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone):
+	def addDataKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone):
 		self.query = 'INSERT INTO data_karyawan (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\',)' 
 		self.query = self.query % (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
-	def updateKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone):
-		self.query = 'UPDATE data_karyawan SET password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telephone=\'%s\' where username = %i;' 
-		self.query = self.query % ( password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, username)
+	def updateKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, id):
+		self.query = 'UPDATE data_karyawan SET username =\'%s\' password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telephone=\'%s\' where username = %i;' 
+		self.query = self.query % (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telephone, id)
 		print('self.query : ', self.query)
 		self.executeQuery(self.query)
 
@@ -57,12 +57,11 @@ class Barang(DataToko):
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
-	def getDataBarang(self, nama_barang):
-		self.query = 'SELECT * FROM data_barang' 
-		self.query = self.query % (nama_barang)
-		print('self.query : ', self.query )
-		username = self.executeQuery(self.query, retVal=True)
-		return username
+	def getDataBarang(self):
+		self.query = "SELECT id, no_barang, nama_barang, jenis_barang, harga_barang, stok_barang FROM data_barang"
+		print('self.query : ', self.query)
+		result = self.executeQuery(self.query, True)
+		return result
 
 	def updateDataBarang(self, id_barang, nama_barang, jenis_barang, harga_barang, stok_barang):
 		self.query = 'UPDATE data_barang SET id_barang = ?, nama_barang = ?, jenis_barang = ?, harga_barang = ?, stok_barang = ?'
@@ -70,9 +69,9 @@ class Barang(DataToko):
 		print('self.query:',self.query)
 		self.executeQuery(self.query)
 
-	def deleteBarang(self,no_barang):
-		self.query = 'DELETE FROM data_barang where no_barang = %i' 
-		self.query = self.query % (no_barang)
+	def deleteBarang(self,id_barang):
+		self.query = 'DELETE FROM data_barang where id_barang = %i' 
+		self.query = self.query % (id_barang)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 
@@ -83,12 +82,11 @@ class Lapor(DataToko):
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
-	def getDataLapor(self, no_barang):
-		self.query = 'SELECT id_laporan FROM data_laporan where no_barang=\'%s\'' 
-		self.query = self.query % (no_barang)
-		print('self.query : ', self.query )
-		username = self.executeQuery(self.query, retVal=True)
-		return username
+	def getDataLapor(self):
+		self.query = "SELECT id_laporan, no_barang, username FROM data_laporan"
+		print('self.query : ', self.query)
+		result = self.executeQuery(self.query, True)
+		return result
 
 	def updateDataLapor(self, id_laporan, no_barang, username):
 		self.query = 'UPDATE data_laporan SET id_laporan = ?, no_barang = ?, username = ?'
@@ -101,7 +99,6 @@ class Lapor(DataToko):
 		self.query = self.query % (id_laporan)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
-		#test
 		
 
 
