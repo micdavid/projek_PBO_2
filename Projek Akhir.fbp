@@ -4223,7 +4223,7 @@
                 </object>
             </object>
         </object>
-        <object class="Frame" expanded="0">
+        <object class="Frame" expanded="1">
             <property name="aui_managed">0</property>
             <property name="aui_manager_style">wxAUI_MGR_DEFAULT</property>
             <property name="bg"></property>
@@ -4394,7 +4394,7 @@
                                 <property name="col_label_size">30</property>
                                 <property name="col_label_values"></property>
                                 <property name="col_label_vert_alignment">wxALIGN_CENTER</property>
-                                <property name="cols">3</property>
+                                <property name="cols">2</property>
                                 <property name="column_sizes"></property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
