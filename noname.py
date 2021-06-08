@@ -356,11 +356,7 @@ class FrameInputBrg ( wx.Dialog ):
 class FrameInputKry ( wx.Dialog ):
 
 	def __init__( self, parent ):
-<<<<<<< HEAD
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 343,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
-=======
 		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"Frame Input Karyawan", pos = wx.DefaultPosition, size = wx.Size( 465,326 ), style = wx.DEFAULT_DIALOG_STYLE )
->>>>>>> 9dd36a912c5c18ca4d25b6480eaa24ae088c479d
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
