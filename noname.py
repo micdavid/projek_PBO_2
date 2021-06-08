@@ -356,7 +356,7 @@ class FrameInputBrg ( wx.Dialog ):
 class FrameInputKry ( wx.Dialog ):
 
 	def __init__( self, parent ):
-		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"Frame Input Karyawan", pos = wx.DefaultPosition, size = wx.Size( 465,326 ), style = wx.DEFAULT_DIALOG_STYLE )
+		wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"Frame Input Karyawan", pos = wx.DefaultPosition, size = wx.Size( 465,339 ), style = wx.DEFAULT_DIALOG_STYLE )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -401,9 +401,8 @@ class FrameInputKry ( wx.Dialog ):
 
 		fgSizer20.Add( self.m_staticText35, 0, wx.ALL, 5 )
 
-		m_comboBox1Choices = [ u"Laki-laki", u"Perempuan" ]
-		self.m_comboBox1 = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, m_comboBox1Choices, 0 )
-		fgSizer20.Add( self.m_comboBox1, 0, wx.ALL, 5 )
+		self.m_textCtrl191 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		fgSizer20.Add( self.m_textCtrl191, 0, wx.ALL, 5 )
 
 		self.m_staticText37 = wx.StaticText( self, wx.ID_ANY, u"Tanggal Lahir", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText37.Wrap( -1 )
@@ -420,6 +419,14 @@ class FrameInputKry ( wx.Dialog ):
 
 		self.m_textCtrl24 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer20.Add( self.m_textCtrl24, 0, wx.ALL, 5 )
+
+		self.m_staticText301 = wx.StaticText( self, wx.ID_ANY, u"No Telepon", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText301.Wrap( -1 )
+
+		fgSizer20.Add( self.m_staticText301, 0, wx.ALL, 5 )
+
+		self.m_textCtrl17 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		fgSizer20.Add( self.m_textCtrl17, 0, wx.ALL, 5 )
 
 		self.m_button26 = wx.Button( self, wx.ID_ANY, u"Simpan", wx.DefaultPosition, wx.DefaultSize, 0 )
 		fgSizer20.Add( self.m_button26, 0, wx.ALL, 5 )
