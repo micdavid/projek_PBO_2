@@ -74,6 +74,7 @@ class Barang(DataToko):
 		self.query = self.query % (id_barang)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
+		#test
 		
 
 
