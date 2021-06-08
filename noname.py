@@ -636,7 +636,7 @@ class FrameLaporMgr ( wx.Frame ):
 		self.tabel_lapor = wx.grid.Grid( sbSizer8.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.tabel_lapor.CreateGrid( 1, 3 )
+		self.tabel_lapor.CreateGrid( 1, 2 )
 		self.tabel_lapor.EnableEditing( True )
 		self.tabel_lapor.EnableGridLines( True )
 		self.tabel_lapor.EnableDragGridSize( False )
