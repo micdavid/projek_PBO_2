@@ -224,7 +224,7 @@ class FrameBarang ( wx.Frame ):
 		self.tabel_barang = wx.grid.Grid( sbSizer41.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.tabel_barang.CreateGrid( 5, 6 )
+		self.tabel_barang.CreateGrid( 5, 5 )
 		self.tabel_barang.EnableEditing( True )
 		self.tabel_barang.EnableGridLines( True )
 		self.tabel_barang.EnableDragGridSize( False )
