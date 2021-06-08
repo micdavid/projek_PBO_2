@@ -345,8 +345,16 @@ class FrameInputBrg ( wx.Dialog ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_simpan )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_simpan( self, event ):
+		event.Skip()
 
 
 ###########################################################################
