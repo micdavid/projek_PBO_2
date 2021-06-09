@@ -57,14 +57,14 @@ class WelcomeFrame ( wx.Frame ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
-		self.m_button11.Bind( wx.EVT_BUTTON, self.m_button11OnButtonClick )
+		self.m_button11.Bind( wx.EVT_BUTTON, self.btn_login )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def m_button11OnButtonClick( self, event ):
+	def btn_login( self, event ):
 		event.Skip()
 
 
@@ -275,12 +275,31 @@ class FrameKaryawanMgr ( wx.Frame ):
 
 		bSizer8 = wx.BoxSizer( wx.VERTICAL )
 
+<<<<<<< HEAD
 		self.m_staticText22 = wx.StaticText( sbSizer7.GetStaticBox(), wx.ID_ANY, u"Data Karyawan", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText22.Wrap( -1 )
+=======
+		# Connect Events
+		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
+
+	def __del__( self ):
+		pass
+>>>>>>> c7fae0698994abe80d7679753f9e1c848e85ebba
 
 		self.m_staticText22.SetFont( wx.Font( 12, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, "Arial Narrow" ) )
 
+<<<<<<< HEAD
 		bSizer8.Add( self.m_staticText22, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+=======
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
+
+
+###########################################################################
+## Class FrameInputBrg
+###########################################################################
+>>>>>>> c7fae0698994abe80d7679753f9e1c848e85ebba
 
 
 		fgSizer14.Add( bSizer8, 1, wx.EXPAND, 5 )
@@ -605,7 +624,13 @@ class FrameInputLaporan ( wx.Dialog ):
 		self.Centre( wx.BOTH )
 
 		# Connect Events
+<<<<<<< HEAD
 		self.m_button29.Bind( wx.EVT_BUTTON, self.btn_simpan )
+=======
+		self.tabel_karyawan.Bind( wx.grid.EVT_GRID_SELECT_CELL, self.tabel_karyawanOnGridCmdSelectCell )
+		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_tambah )
+		self.m_button27.Bind( wx.EVT_BUTTON, self.btn_back )
+>>>>>>> c7fae0698994abe80d7679753f9e1c848e85ebba
 
 	def __del__( self ):
 		pass
@@ -613,6 +638,9 @@ class FrameInputLaporan ( wx.Dialog ):
 
 	# Virtual event handlers, overide them in your derived class
 	def btn_simpan( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
 		event.Skip()
 
 
@@ -800,8 +828,16 @@ class FrameProfilKry ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button31.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -837,7 +873,7 @@ class FrameLogin ( wx.Frame ):
 
 		bSizer21.Add( self.m_staticText23, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
-		self.input_pw = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.input_pw = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, wx.TE_PASSWORD )
 		bSizer21.Add( self.input_pw, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
 		self.tombol_login = wx.Button( self, wx.ID_ANY, u"LOGIN", wx.DefaultPosition, wx.DefaultSize, 0 )
@@ -981,6 +1017,7 @@ class FrameMenuKry ( wx.Frame ):
 		# Connect Events
 		self.m_button61.Bind( wx.EVT_BUTTON, self.btn_profil )
 		self.m_button62.Bind( wx.EVT_BUTTON, self.btn_barang1 )
+		self.m_button63.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
 		pass
@@ -991,6 +1028,9 @@ class FrameMenuKry ( wx.Frame ):
 		event.Skip()
 
 	def btn_barang1( self, event ):
+		event.Skip()
+
+	def btn_back( self, event ):
 		event.Skip()
 
 
