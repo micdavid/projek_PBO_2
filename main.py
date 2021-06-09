@@ -51,7 +51,7 @@ class Login(gui.FrameLogin):
                     FrameLogin.Hide()
             else :
                 print("Username atau password salah!!")
-                
+
 
 class FrameBarang2 (gui.FrameBarang):
     def __init__(self,parent):
@@ -154,8 +154,8 @@ FrameLapor=FrameLapor(None)
 # FrameLogin.Show()
 # FrameMgr.Show()
 # FrameKry.Show()
-FrameKaryawan.Show()
-# FrameBarang1.Show()
+# FrameKaryawan.Show()
+FrameBarang1.Show()
 # FrameBarang2.Show()
 # FrameInput.Show()
 # FrameProfil.Show()

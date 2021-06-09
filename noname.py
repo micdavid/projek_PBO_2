@@ -75,7 +75,7 @@ class WelcomeFrame ( wx.Frame ):
 class FrameBarangMgr ( wx.Frame ):
 
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 675,275 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 685,270 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
 		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -135,9 +135,6 @@ class FrameBarangMgr ( wx.Frame ):
 		self.m_button33 = wx.Button( sbSizer41.GetStaticBox(), wx.ID_ANY, u"Tambah Data", wx.DefaultPosition, wx.DefaultSize, 0 )
 		bSizer3.Add( self.m_button33, 0, wx.ALL, 5 )
 
-		self.m_button32 = wx.Button( sbSizer41.GetStaticBox(), wx.ID_ANY, u"Cek Laporan", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer3.Add( self.m_button32, 0, wx.ALL, 5 )
-
 
 		fgSizer5.Add( bSizer3, 1, wx.EXPAND, 5 )
 
@@ -166,7 +163,6 @@ class FrameBarangMgr ( wx.Frame ):
 		# Connect Events
 		self.tabel_barang.Bind( wx.grid.EVT_GRID_SELECT_CELL, self.tabel_barangOnGridCmdSelectCell )
 		self.m_button33.Bind( wx.EVT_BUTTON, self.btn_tambah )
-		self.m_button32.Bind( wx.EVT_BUTTON, self.cek_lapor )
 		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
@@ -178,9 +174,6 @@ class FrameBarangMgr ( wx.Frame ):
 		event.Skip()
 
 	def btn_tambah( self, event ):
-		event.Skip()
-
-	def cek_lapor( self, event ):
 		event.Skip()
 
 	def btn_back( self, event ):
@@ -347,115 +340,15 @@ class FrameInputBrg ( wx.Dialog ):
 
 		self.Centre( wx.BOTH )
 
-	def __del__( self ):
-		pass
-
-
-###########################################################################
-## Class FrameKaryawanMgr
-###########################################################################
-
-class FrameKaryawanMgr ( wx.Frame ):
-
-	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 850,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
-
-		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
-
-		sbSizer7 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Menu Karyawan" ), wx.VERTICAL )
-
-		fgSizer14 = wx.FlexGridSizer( 0, 2, 0, 0 )
-		fgSizer14.SetFlexibleDirection( wx.BOTH )
-		fgSizer14.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
-
-		bSizer8 = wx.BoxSizer( wx.VERTICAL )
-
-		self.m_staticText22 = wx.StaticText( sbSizer7.GetStaticBox(), wx.ID_ANY, u"Data Karyawan", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_staticText22.Wrap( -1 )
-
-		self.m_staticText22.SetFont( wx.Font( 12, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, "Arial Narrow" ) )
-
-		bSizer8.Add( self.m_staticText22, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-
-
-		fgSizer14.Add( bSizer8, 1, wx.EXPAND, 5 )
-
-		fgSizer15 = wx.FlexGridSizer( 0, 2, 0, 0 )
-		fgSizer15.SetFlexibleDirection( wx.BOTH )
-		fgSizer15.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
-
-
-		fgSizer14.Add( fgSizer15, 1, wx.EXPAND, 5 )
-
-		self.tabel_karyawan = wx.grid.Grid( sbSizer7.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
-
-		# Grid
-		self.tabel_karyawan.CreateGrid( 3, 7 )
-		self.tabel_karyawan.EnableEditing( True )
-		self.tabel_karyawan.EnableGridLines( True )
-		self.tabel_karyawan.EnableDragGridSize( False )
-		self.tabel_karyawan.SetMargins( 0, 0 )
-
-		# Columns
-		self.tabel_karyawan.EnableDragColMove( False )
-		self.tabel_karyawan.EnableDragColSize( True )
-		self.tabel_karyawan.SetColLabelSize( 30 )
-		self.tabel_karyawan.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
-
-		# Rows
-		self.tabel_karyawan.EnableDragRowSize( True )
-		self.tabel_karyawan.SetRowLabelSize( 80 )
-		self.tabel_karyawan.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
-
-		# Label Appearance
-
-		# Cell Defaults
-		self.tabel_karyawan.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-		fgSizer14.Add( self.tabel_karyawan, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
-
-		bSizer9 = wx.BoxSizer( wx.VERTICAL )
-
-		self.m_button24 = wx.Button( sbSizer7.GetStaticBox(), wx.ID_ANY, u"Tambah Data", wx.DefaultPosition, wx.DefaultSize, 0 )
-		bSizer9.Add( self.m_button24, 0, wx.ALL, 5 )
-
-
-		fgSizer14.Add( bSizer9, 1, wx.EXPAND, 5 )
-
-
-		sbSizer7.Add( fgSizer14, 1, wx.EXPAND, 5 )
-
-
-		sbSizer7.Add( ( 0, 0), 1, wx.EXPAND, 5 )
-
-		fgSizer16 = wx.FlexGridSizer( 0, 2, 0, 0 )
-		fgSizer16.SetFlexibleDirection( wx.BOTH )
-		fgSizer16.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
-
-		self.m_button27 = wx.Button( sbSizer7.GetStaticBox(), wx.ID_ANY, u"<< Back", wx.DefaultPosition, wx.DefaultSize, 0 )
-		fgSizer16.Add( self.m_button27, 0, wx.ALL, 5 )
-
-
-		sbSizer7.Add( fgSizer16, 1, wx.EXPAND, 5 )
-
-
-		self.SetSizer( sbSizer7 )
-		self.Layout()
-
-		self.Centre( wx.BOTH )
-
 		# Connect Events
-		self.tabel_karyawan.Bind( wx.grid.EVT_GRID_SELECT_CELL, self.tabel_karyawanOnGridCmdSelectCell )
-		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_tambah )
+		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_simpan )
 
 	def __del__( self ):
 		pass
 
 
 	# Virtual event handlers, overide them in your derived class
-	def tabel_karyawanOnGridCmdSelectCell( self, event ):
-		event.Skip()
-
-	def btn_tambah( self, event ):
+	def btn_simpan( self, event ):
 		event.Skip()
 
 
@@ -601,6 +494,114 @@ class FrameInputLaporan ( wx.Dialog ):
 
 	def __del__( self ):
 		pass
+
+
+###########################################################################
+## Class FrameKaryawanMgr
+###########################################################################
+
+class FrameKaryawanMgr ( wx.Frame ):
+
+	def __init__( self, parent ):
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 843,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+
+		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
+
+		sbSizer7 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Menu Karyawan" ), wx.VERTICAL )
+
+		fgSizer14 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer14.SetFlexibleDirection( wx.BOTH )
+		fgSizer14.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+		bSizer8 = wx.BoxSizer( wx.VERTICAL )
+
+		self.m_staticText22 = wx.StaticText( sbSizer7.GetStaticBox(), wx.ID_ANY, u"Data Karyawan", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText22.Wrap( -1 )
+
+		self.m_staticText22.SetFont( wx.Font( 12, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, "Arial Narrow" ) )
+
+		bSizer8.Add( self.m_staticText22, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+
+		fgSizer14.Add( bSizer8, 1, wx.EXPAND, 5 )
+
+		fgSizer15 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer15.SetFlexibleDirection( wx.BOTH )
+		fgSizer15.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+
+		fgSizer14.Add( fgSizer15, 1, wx.EXPAND, 5 )
+
+		self.tabel_karyawan = wx.grid.Grid( sbSizer7.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+
+		# Grid
+		self.tabel_karyawan.CreateGrid( 3, 8 )
+		self.tabel_karyawan.EnableEditing( True )
+		self.tabel_karyawan.EnableGridLines( True )
+		self.tabel_karyawan.EnableDragGridSize( False )
+		self.tabel_karyawan.SetMargins( 0, 0 )
+
+		# Columns
+		self.tabel_karyawan.EnableDragColMove( False )
+		self.tabel_karyawan.EnableDragColSize( True )
+		self.tabel_karyawan.SetColLabelSize( 30 )
+		self.tabel_karyawan.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+		# Rows
+		self.tabel_karyawan.EnableDragRowSize( True )
+		self.tabel_karyawan.SetRowLabelSize( 80 )
+		self.tabel_karyawan.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+		# Label Appearance
+
+		# Cell Defaults
+		self.tabel_karyawan.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		fgSizer14.Add( self.tabel_karyawan, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+
+		bSizer9 = wx.BoxSizer( wx.VERTICAL )
+
+		self.m_button24 = wx.Button( sbSizer7.GetStaticBox(), wx.ID_ANY, u"Tambah Data", wx.DefaultPosition, wx.DefaultSize, 0 )
+		bSizer9.Add( self.m_button24, 0, wx.ALL, 5 )
+
+
+		fgSizer14.Add( bSizer9, 1, wx.EXPAND, 5 )
+
+
+		sbSizer7.Add( fgSizer14, 1, wx.EXPAND, 5 )
+
+
+		sbSizer7.Add( ( 0, 0), 1, wx.EXPAND, 5 )
+
+		fgSizer16 = wx.FlexGridSizer( 0, 2, 0, 0 )
+		fgSizer16.SetFlexibleDirection( wx.BOTH )
+		fgSizer16.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
+
+		self.m_button27 = wx.Button( sbSizer7.GetStaticBox(), wx.ID_ANY, u"<< Back", wx.DefaultPosition, wx.DefaultSize, 0 )
+		fgSizer16.Add( self.m_button27, 0, wx.ALL, 5 )
+
+
+		sbSizer7.Add( fgSizer16, 1, wx.EXPAND, 5 )
+
+
+		self.SetSizer( sbSizer7 )
+		self.Layout()
+
+		self.Centre( wx.BOTH )
+
+		# Connect Events
+		self.tabel_karyawan.Bind( wx.grid.EVT_GRID_SELECT_CELL, self.tabel_karyawanOnGridCmdSelectCell )
+		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_tambah )
+
+	def __del__( self ):
+		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def tabel_karyawanOnGridCmdSelectCell( self, event ):
+		event.Skip()
+
+	def btn_tambah( self, event ):
+		event.Skip()
 
 
 ###########################################################################
