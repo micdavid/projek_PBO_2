@@ -166,6 +166,7 @@ class FrameBarangMgr ( wx.Frame ):
 		# Connect Events
 		self.tabel_barang.Bind( wx.grid.EVT_GRID_SELECT_CELL, self.tabel_barangOnGridCmdSelectCell )
 		self.m_button33.Bind( wx.EVT_BUTTON, self.btn_tambah )
+		self.m_button32.Bind( wx.EVT_BUTTON, self.cek_lapor )
 		self.m_button37.Bind( wx.EVT_BUTTON, self.btn_back )
 
 	def __del__( self ):
@@ -177,6 +178,9 @@ class FrameBarangMgr ( wx.Frame ):
 		event.Skip()
 
 	def btn_tambah( self, event ):
+		event.Skip()
+
+	def cek_lapor( self, event ):
 		event.Skip()
 
 	def btn_back( self, event ):
@@ -343,16 +347,8 @@ class FrameInputBrg ( wx.Dialog ):
 
 		self.Centre( wx.BOTH )
 
-		# Connect Events
-		self.m_button24.Bind( wx.EVT_BUTTON, self.btn_simpan )
-
 	def __del__( self ):
 		pass
-
-
-	# Virtual event handlers, overide them in your derived class
-	def btn_simpan( self, event ):
-		event.Skip()
 
 
 ###########################################################################
@@ -641,31 +637,31 @@ class FrameLaporMgr ( wx.Frame ):
 
 		fgSizer22.Add( fgSizer23, 1, wx.EXPAND, 5 )
 
-		self.m_grid7 = wx.grid.Grid( sbSizer8.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.tabel_lapor = wx.grid.Grid( sbSizer8.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid7.CreateGrid( 1, 3 )
-		self.m_grid7.EnableEditing( True )
-		self.m_grid7.EnableGridLines( True )
-		self.m_grid7.EnableDragGridSize( False )
-		self.m_grid7.SetMargins( 0, 0 )
+		self.tabel_lapor.CreateGrid( 1, 2 )
+		self.tabel_lapor.EnableEditing( True )
+		self.tabel_lapor.EnableGridLines( True )
+		self.tabel_lapor.EnableDragGridSize( False )
+		self.tabel_lapor.SetMargins( 0, 0 )
 
 		# Columns
-		self.m_grid7.EnableDragColMove( False )
-		self.m_grid7.EnableDragColSize( True )
-		self.m_grid7.SetColLabelSize( 30 )
-		self.m_grid7.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_lapor.EnableDragColMove( False )
+		self.tabel_lapor.EnableDragColSize( True )
+		self.tabel_lapor.SetColLabelSize( 30 )
+		self.tabel_lapor.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Rows
-		self.m_grid7.EnableDragRowSize( True )
-		self.m_grid7.SetRowLabelSize( 80 )
-		self.m_grid7.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_lapor.EnableDragRowSize( True )
+		self.tabel_lapor.SetRowLabelSize( 80 )
+		self.tabel_lapor.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Label Appearance
 
 		# Cell Defaults
-		self.m_grid7.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-		fgSizer22.Add( self.m_grid7, 0, wx.ALL, 5 )
+		self.tabel_lapor.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		fgSizer22.Add( self.tabel_lapor, 0, wx.ALL, 5 )
 
 
 		sbSizer8.Add( fgSizer22, 1, wx.EXPAND, 5 )
@@ -689,8 +685,16 @@ class FrameLaporMgr ( wx.Frame ):
 
 		self.Centre( wx.BOTH )
 
+		# Connect Events
+		self.m_button34.Bind( wx.EVT_BUTTON, self.btn_back )
+
 	def __del__( self ):
 		pass
+
+
+	# Virtual event handlers, overide them in your derived class
+	def btn_back( self, event ):
+		event.Skip()
 
 
 ###########################################################################
@@ -727,31 +731,31 @@ class FrameProfilKry ( wx.Frame ):
 
 		fgSizer18.Add( fgSizer19, 1, wx.EXPAND, 5 )
 
-		self.m_grid4 = wx.grid.Grid( sbSizer71.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.tabel_karyawan = wx.grid.Grid( sbSizer71.GetStaticBox(), wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
 
 		# Grid
-		self.m_grid4.CreateGrid( 1, 7 )
-		self.m_grid4.EnableEditing( True )
-		self.m_grid4.EnableGridLines( True )
-		self.m_grid4.EnableDragGridSize( False )
-		self.m_grid4.SetMargins( 0, 0 )
+		self.tabel_karyawan.CreateGrid( 3, 8 )
+		self.tabel_karyawan.EnableEditing( True )
+		self.tabel_karyawan.EnableGridLines( True )
+		self.tabel_karyawan.EnableDragGridSize( False )
+		self.tabel_karyawan.SetMargins( 0, 0 )
 
 		# Columns
-		self.m_grid4.EnableDragColMove( False )
-		self.m_grid4.EnableDragColSize( True )
-		self.m_grid4.SetColLabelSize( 30 )
-		self.m_grid4.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_karyawan.EnableDragColMove( False )
+		self.tabel_karyawan.EnableDragColSize( True )
+		self.tabel_karyawan.SetColLabelSize( 30 )
+		self.tabel_karyawan.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Rows
-		self.m_grid4.EnableDragRowSize( True )
-		self.m_grid4.SetRowLabelSize( 80 )
-		self.m_grid4.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+		self.tabel_karyawan.EnableDragRowSize( True )
+		self.tabel_karyawan.SetRowLabelSize( 80 )
+		self.tabel_karyawan.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
 
 		# Label Appearance
 
 		# Cell Defaults
-		self.m_grid4.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-		fgSizer18.Add( self.m_grid4, 0, wx.ALL, 5 )
+		self.tabel_karyawan.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+		fgSizer18.Add( self.tabel_karyawan, 0, wx.ALL, 5 )
 
 		bSizer11 = wx.BoxSizer( wx.VERTICAL )
 

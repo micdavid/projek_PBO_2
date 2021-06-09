@@ -17,7 +17,7 @@ class DataToko:
 class Manager(DataToko):
 
 	def getDataManager(self):
-		self.query = "SELECT id, username, password, nama, jabatan FROM data_manager"
+		self.query = "SELECT username, password FROM data_manager"
 		print('self.query : ', self.query)
 		result = self.executeQuery(self.query, True)
 		return result
@@ -72,6 +72,30 @@ class Barang(DataToko):
 	def deleteDataBarang(self,id):
 		self.query = 'DELETE FROM data_barang where id = %i' 
 		self.query = self.query % (id)
+		print('self.query : ', self.query )
+		self.executeQuery(self.query)
+class Lapor(DataToko):
+	def setDataLapor(self, id_laporan, no_barang, username):
+		self.query = 'INSERT INTO data_laporan (id_laporan, no_barang, username) VALUES (\'%s\', \'%s\', \'%s\')' 
+		self.query = self.query % (id_laporan, no_barang, username)
+		print('self.query : ', self.query )
+		self.executeQuery(self.query)
+		
+	def getDataLapor(self):
+		self.query = "SELECT id_laporan, no_barang, username FROM data_laporan"
+		print('self.query : ', self.query)
+		result = self.executeQuery(self.query, True)
+		return result
+
+	def updateDataLapor(self, id_laporan, no_barang, username):
+		self.query = 'UPDATE data_laporan SET id_laporan = ?, no_barang = ?, username = ?'
+		self.query = self.query % (id_laporan, no_barang, username)
+		print('self.query:',self.query)
+		self.executeQuery(self.query)
+
+	def deleteDataLapor(self,id_laporan):
+		self.query = 'DELETE FROM data_laporan where id_laporan = %i' 
+		self.query = self.query % (id_laporan)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
