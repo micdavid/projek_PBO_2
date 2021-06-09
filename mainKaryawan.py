@@ -19,7 +19,7 @@ class dlgAddKaryawan(gui.FrameInputKry):
             self.input_nama.GetValue(), self.input_gender.GetValue(), self.input_ttl.GetValue(),
             self.input_alamat.GetValue(), self.input_telp.GetValue())
         else:
-            self.parent.updateDataKry(self.input_user.GetValue(), self.input_pass.GetValue(),
+            self.parent.updateDataKry(self.id, self.input_user.GetValue(), self.input_pass.GetValue(),
             self.input_nama.GetValue(), self.input_gender.GetValue(), self.input_ttl.GetValue(),
             self.input_alamat.GetValue(), self.input_telp.GetValue())
         self.Destroy()
@@ -130,6 +130,6 @@ class FrameKaryawan(gui.FrameKaryawanMgr):
             retval = dlg.ShowModal()
             if retval == wx.ID_YES:
                 print('hapus')
-                self.kry.deleteDataKaryawan(self.listIdBarang[baris])
+                self.kry.deleteDataKaryawan(self.listIdKry[baris])
                 self.showDataKaryawan()
                 self.AddBtnKaryawan()

@@ -32,13 +32,13 @@ class Karyawan(DataToko):
 		return result
 
 	def addDataKaryawan(self, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon):
-		self.query = 'INSERT INTO data_karyawan (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\',)' 
+		self.query = 'INSERT INTO data_karyawan (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon) VALUES (\'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\', \'%s\')' 
 		self.query = self.query % (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
 		
 	def updateDataKaryawan(self, id, username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon):
-		self.query = 'UPDATE data_karyawan SET username =\'%s\' password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telepon=\'%s\' WHERE id = %i;' 
+		self.query = "UPDATE data_karyawan SET username =\'%s\', password=\'%s\', nama_karyawan=\'%s\', jenis_kelamin=\'%s\', tanggal_lahir=\'%s\', alamat=\'%s\', no_telepon=\'%s\' WHERE id = %i" 
 		self.query = self.query % (username, password, nama_karyawan, jenis_kelamin, tanggal_lahir, alamat, no_telepon, id)
 		print('self.query : ', self.query)
 		self.executeQuery(self.query)
@@ -74,6 +74,7 @@ class Barang(DataToko):
 		self.query = self.query % (id)
 		print('self.query : ', self.query )
 		self.executeQuery(self.query)
+
 class Lapor(DataToko):
 	def setDataLapor(self, id_laporan, no_barang, username):
 		self.query = 'INSERT INTO data_laporan (id_laporan, no_barang, username) VALUES (\'%s\', \'%s\', \'%s\')' 
